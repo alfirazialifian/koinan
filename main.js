@@ -1,7 +1,7 @@
 document.querySelectorAll('.sticky-dot button').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
+  anchor.addEventListener('click', (e) => {
     e.preventDefault();
-    const targetId = this.getAttribute('data-target');
+    const targetId = e.target.getAttribute('data-target');
     const targetElement = document.querySelector(targetId);
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: 'smooth' });
@@ -11,6 +11,24 @@ document.querySelectorAll('.sticky-dot button').forEach(anchor => {
   });
 });
 
+const scrollBtn = document.querySelector('.wrapper-scroll');
+scrollBtn.addEventListener('click', () => {
+  const targetElement = document.getElementById('footer');
+  if (targetElement) {
+    targetElement.scrollIntoView({behavior: 'smooth'})
+  }
+})
+
+const selectElement = document.getElementById('select-input');
+selectElement.addEventListener('change', function() {
+  if (this.value !== "Pilih subject pesan") {
+    this.classList.remove('placeholder-select');
+  } else {
+    this.classList.add('placeholder-select');
+  }
+});
+
+// observer for tracking which container in viewport
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {    
     if (entry.isIntersecting) {
@@ -26,7 +44,6 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.5 });
-
 document.querySelectorAll('.observer').forEach(section => {
   observer.observe(section);
 });

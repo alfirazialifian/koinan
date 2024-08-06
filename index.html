@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./assets/Logo.svg" type="image/x-icon"> 
   <link rel="stylesheet" href="./style.css">
   <title>Koinan</title>
 </head>
@@ -10,43 +11,175 @@
   <nav>
     <img src="./assets/Logo.svg"/ alt="Koinan Logo">
     <div>
-      <a href="" class="menus-text">Tentang Kami</a>
-      <a href="" class="menus-text">Cara Tukar Koin</a>
-      <a href="" class="menus-text">Temukan Kamu</a>
-      <a href="" class="menus-text">Hubungi Kami</a>
+      <a href="#section-1" class="menus-text">Tentang Kami</a>
+      <a href="#section-2" class="menus-text">Cara Tukar Koin</a>
+      <a href="#section-3" class="menus-text">Temukan Kami</a>
+      <a href="#section-4" class="menus-text">Hubungi Kami</a>
     </div>
   </nav>
 
-  <section class="section-1 padding-left-section">
-    <div class="wrapper-hero-smile-section-1 border-content-section">
-      <img src="./assets/Hero-smile.svg" alt="Hero Smile">
-    </div>
-    <div class="wrapper-text-section-1 border-content-section">
-      <h2>Solusi Untuk <br> Masalah Receh</h2>
-      <p>Kami menyediakan layanan mesin penukaran koin ke uang digital dengan <br />
-        cepat dan mudah. Tidak perlu lagi repot dengan koin-koin yang menumpuk di <br/>
-         saku Anda. Mulai bertransaksi dengan mudah bersama Koinan!
-      </p>
-    </div>
-    <div class="wrapper-scroll">
-      <p>SCROLL</p>
-      <img src="./assets/chevron-bottom.svg" alt="chevron-down">
-    </div>
-  </section>
+  <div class="container-content">
+    <div class="sticky-dot">
+      <button data-target="#section-1"></button>
 
-  <section class="section-2 padding-left-section">
-    <div class="wrapper-text-top-section-2 border-content-section">
-      <div>
-        <h5>TENTANG KAMI</h5>
-        <h3>Koinan adalah inovasi terbaru dalam dunia keuangan di Indonesia.</h3>
+      <button data-target="#section-2-top"></button>
+      <button data-target="#section-2-bottom"></button>
+
+      <button data-target="#section-3-top"></button>
+      <button data-target="#section-3-bottom"></button>
+
+      <button data-target="#section-4"></button>
+    </div>
+    <!-- Section 1 -->
+    <section id="section-1" class="section-1 padding-left-section border-bottom-section observer">
+      <div class="wrapper-hero-smile-section-1 border-content-section-left padding-section">
+        <div></div>
+        <!-- <img src="./assets/Hero-smile.svg" alt="Hero Smile"> -->
       </div>
-      <p>Kami bertekad untuk mengatasi masalah umum terkait koin receh dengan menyediakan solusi yang efisien dan praktis. Dengan Koinan, kami ingin memudahkan setiap orang untuk mengakses uang digital dengan aman dan mudah.</p>
+      <div class="wrapper-text-section-1 border-content-section padding-section">
+        <h2>Solusi Untuk <br> Masalah Receh</h2>
+        <p>Kami menyediakan layanan mesin penukaran koin ke uang digital dengan <br />
+          cepat dan mudah. Tidak perlu lagi repot dengan koin-koin yang menumpuk di <br/>
+          saku Anda. Mulai bertransaksi dengan mudah bersama Koinan!
+        </p>
+        <button class="wrapper-scroll">
+          <p>SCROLL</p>
+          <img src="./assets/chevron-bottom.svg" alt="chevron-down">
+        </button>
+      </div>
+    </section>
+
+    <!-- Section 2 -->
+    <section id="section-2" class="section-2 padding-left-section">
+      <!-- section top -->
+      <div id="section-2-top" class="wrapper-text-top-section-2 border-content-section-left border-bottom-section padding-section observer">
+        <div>
+          <h5>TENTANG KAMI</h5>
+          <h3>Koinan adalah inovasi terbaru dalam dunia keuangan di Indonesia.</h3>
+        </div>
+        <p>Kami bertekad untuk mengatasi masalah umum terkait koin receh dengan menyediakan solusi yang efisien dan praktis. Dengan Koinan, kami ingin memudahkan setiap orang untuk mengakses uang digital dengan aman dan mudah.</p>
+      </div>
+      <div class="wrapper-heroes-top-section-2 border-content-section border-bottom-section padding-section">
+        <img src="./assets/heroes-2.svg" alt="heroes-watching" style="width: 100%;">
+      </div>
+      <span></span>
+
+      <!-- section bottom -->
+      <div id="section-2-bottom" class="wrapper-heroes-bottom-section-2 border-content-section-left padding-section observer">
+        <div class="hero-section-2-smile">
+          <h5>Untuk Individu</h5>
+          <p>Koinan menyediakan mesin penukaran koin otomatis yang dapat diakses 
+            dengan mudah di berbagai lokasi. Anda bisa menukarkan koin receh 
+            Anda menjadi saldo digital di digital wallet Anda tanpa harus antri di 
+            bank atau money changer.
+          </p>
+        </div>
+        <div class="hero-section-2-computer">
+          <h5>Untuk Pemilik Usaha</h5>
+          <p>Koinan juga menawarkan solusi penukaran koin yang efisien untuk bisnis. Dengan layanan kami, Anda dapat mengintegrasikan mesin penukaran koin ke dalam bisnis Anda, memungkinkan pelanggan untuk dengan mudah menggunakan koin receh sebagai pembayaran elektronik</p>
+        </div>
+      </div>
+      <div class="wrapper-text-bottom-section-2 border-content-section padding-section">
+        <div>
+          <h5>LAYANAN KAMI</h5>
+          <h3>Bukan sekedar layanan penukaran koin biasa.</h3>
+        </div>
+        <p>Egestas hendrerit ullamcorper posuere duis tortor non netus tortor. Imperdiet pellentesque euismod sodales leo enim at dictum. Nullam lectus etiam amet donec donec urna. Arcu pellentesque tempus dolor ultricies malesuada consequat. Dictum quis lectus morbi nam in.</p>
+      </div>
+      <span></span>
+    </section>
+
+    <!-- Section 3 -->
+    <section id="section-3" class="section-3 padding-left-section">
+      <!-- section top -->
+      <div id="section-3-top" class="wrapper-text-top-section-3 border-content-section-left border-bottom-section padding-section observer">
+        <h5>CARA KAMI BEKERJA</h5>
+        <h3>Proses penukaran <br> koin yang lebih mudah & anti ribet.</h3>
+      </div>
+      <div class="wrapper-machine-top-section-3 border-content-section border-bottom-section">
+        <div class="border-bottom-section">
+          <span>1</span>
+          <p>Siapkan uang koin yang akan Anda <br> tukarkan di mesin kami</p>
+        </div>
+        <div class="border-bottom-section">
+          <span>2</span>
+          <p>Pilih digital wallet tujuan sesuai <br> dengan keinginan Anda</p>
+        </div>
+        <div>
+          <span>3</span>
+          <p>Tunggu beberapa saat dan koin akan <br> diteruskan ke digital wallet Anda</p>
+        </div>
+      </div>
+      <div class="wrapper-machine-image" >
+        <img src="assets/img-mechine.svg"/>
+      </div>
+
+      <!-- section bottom -->
+      <div id="section-3-bottom" class="wrapper-heroes-bottom-section-3 border-content-section-left padding-section border-bottom-section observer">
+        <div class="hero-section-3-location">
+          <h5>Patung Pancoran Jakarta</h5>
+          <p>Nunc quam neque tortor turpis ac eget dui elementum diam. Egestas etiam sed scelerisque eu sapien turpis viverra pretium. Odio ipsum leo eget sed.</p>
+        </div>
+      </div>
+      <div class="wrapper-text-bottom-section-3 border-content-section padding-section border-bottom-section">
+        <div>
+          <h5>TEMUKAN KAMI</h5>
+          <h3>Koinan telah hadir di berbagai lokasi strategis.</h3>
+        </div>
+        <p>Koinan hadir di berbagai lokasi strategis di seluruh kota. Temukan mesin penukaran koin terdekat dari lokasi Anda dan nikmati kemudahan bertransaksi dengan Koinan.</p>
+        <div>
+          <button class="btn-contact">Hubungi Kami</button>
+          <button class="btn-follow">Ikuti Kami</button>
+        </div>
+      </div>
+      <span></span>
+    </section>
+
+    <!-- Section 4 -->
+    <section id="section-4" class="section-4 padding-left-section observer">
+      <div class="wrapper-text-top-section-4 border-content-section-left padding-section">
+        <div>
+          <h5>HUBUNGI KAMI</h5>
+          <h3>Untuk membuka peluang kerja sama dengan kami.</h3>
+        </div>
+        <p>Jika Anda memiliki pertanyaan atau membutuhkan bantuan, jangan ragu untuk menghubungi tim kami melalui email di support@koinan.com atau melalui telepon di +628123456789. Kami juga tersedia untuk berdiskusi tentang peluang kerjasama bisnis.</p>
+      </div>
+
+      <form class="wrapper-form-section-4 border-content-section padding-section">
+        <div class="custom-input">
+          <span>Nama</span>
+          <input type="text" placeholder="masukan nama Anda ...">
+        </div>
+        <div class="custom-input">
+          <span>Instansi</span>
+          <input type="text" placeholder="tulis nama instansi Anda ...">
+        </div>
+        <div class="custom-input">
+          <span>Subject</span>
+          <select name="" id="select-input" class="placeholder-select">
+            <option class="placeholder-select" disabled selected hidden>Pilih subject pesan</option>
+            <option value="test">Pilih</option>
+          </select>
+        </div>
+        <div class="custom-input">
+          <span>Pesan</span>
+          <textarea name="" id="" placeholder="tulis pesan singkat Anda ..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Kirim</button>
+      </form>
+      
+    </section>
+  </div>
+
+  <footer id="footer">
+    <p>@2024 KOINAN</p>
+    <div>
+      <a href="#" class="menus-text"><img src="./assets/footer/IG.svg" alt=""></a>
+      <a href="#" class="menus-text"><img src="./assets/footer/LI.svg" alt=""></a>
+      <a href="#" class="menus-text"><img src="./assets/footer/YT.svg" alt=""></a>
     </div>
-    <div class="wrapper-heroes-top-section-2 border-content-section">
-      <img src="./assets/heroes-2.svg" alt="">
-    </div>
-    <div class="wrapper-heroes-bottom-section-2 border-content-section">asd</div>
-    <div class="wrapper-text-bottom-section-2 border-content-section">asd</div>
-  </section>
+  </footer>
+
+  <script src="./main.js"></script>
 </body>
 </html>
