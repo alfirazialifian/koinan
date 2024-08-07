@@ -148,6 +148,10 @@ footer {
     display: flex;
     gap: 20px;
   }
+
+  a {
+    cursor: pointer;
+  }
 }
 
 .padding-left-section {
@@ -172,12 +176,16 @@ footer {
 }
 
 .sticky-dot {
+  position: absolute;
+  bottom: 40%;
+  right: -25px;
+  z-index: 3;
+}
+
+.wrapper-fixed {
+  position: fixed;
   display: flex;
   flex-direction: column;
-  position: fixed;
-  bottom: 40%;
-  right: 70px;
-  z-index: 3;
   gap: 20px;
 }
 
@@ -196,9 +204,6 @@ footer {
 }
 
 /* Content */
-.container-content {
-position: relative;
-}
 
 .section-1 {
   display: grid;
@@ -764,7 +769,7 @@ position: relative;
 }
 
 /* Large View */
-@media (min-width: 2000px) {
+@media (min-width: 2400px) {
   .container-content {
     display: flex;
     flex-direction: column;
