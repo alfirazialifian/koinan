@@ -763,9 +763,43 @@ position: relative;
   }
 }
 
+/* Large View */
+@media (min-width: 2000px) {
+  .container-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+    box-sizing: border-box;
+    overflow: hidden;
+    margin: auto;
+    width: 100%;
+  }
+
+  .section-1,.section-2,.section-3,.section-4 {
+    margin: auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(300px, 1000px)  minmax(300px, 1000px) 30px;
+    justify-content: center; /* Center grid items horizontally */
+  }
+}
+
+@media (max-width: 1300px) {
+  .wrapper-hero-smile-section-1 {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    & > div {
+      background-size: contain !important;
+      width: 550px !important;
+      height: 550px !important;
+    }
+  }
+}
 
 /* Mobile View */
-@media (max-width: 768px) {
+@media (max-width: 968px) {
   .container-content {
     overflow: hidden;
   }
@@ -773,6 +807,15 @@ position: relative;
   .section-1, .section-2, .section-3, .section-4 {
     grid-template-columns: minmax(200px, 1fr); /* Single column layout on mobile */
     grid-template-rows: auto auto auto; /* Adjust rows to fit content */
+  }
+
+  .wrapper-hero-smile-section-1 {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    & > div {
+      background-size: cover !important;
+    }
   }
 
   .wrapper-hero-smile-section-1,
@@ -973,27 +1016,5 @@ position: relative;
     & > div {
       display: none;
     }
-  }
-}
-
-/* Large View */
-@media (min-width: 2000px) {
-  .container-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center content horizontally */
-    justify-content: center; /* Center content vertically */
-    box-sizing: border-box;
-    overflow: hidden;
-    margin: auto;
-    width: 100%;
-  }
-
-  .section-1,.section-2,.section-3,.section-4 {
-    margin: auto;
-    width: 100%;
-    display: grid;
-    grid-template-columns: minmax(300px, 1000px)  minmax(300px, 1000px) 30px;
-    justify-content: center; /* Center grid items horizontally */
   }
 }
