@@ -19,7 +19,7 @@ scrollBtn.addEventListener('click', () => {
   }
 })
 
-const selectElement = document.getElementById('select-input');
+const selectElement = document.getElementById('select-subject');
 selectElement.addEventListener('change', function() {
   if (this.value !== "Pilih subject pesan") {
     this.classList.remove('placeholder-select');
@@ -73,3 +73,53 @@ drawerBody.addEventListener('click', (event) => {
     hamburgerButtonDrawer.classList.remove('open');
   }
 });
+
+
+  // Submit Form
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('.wrapper-form-section-4');
+    const textarea = form.querySelector('#textarea-pesan');
+  
+    form.addEventListener('submit', (event) => {
+      event.preventDefault(); // Prevent the default form submission behavior
+  
+      // Extract form data
+      const name = form.querySelector('#input-nama').value;
+      const organization = form.querySelector('#input-instansi').value;
+      const subject = form.querySelector('#select-subject').value;  
+      console.log('Name:', name);
+      console.log('Organization:', organization);
+      console.log('Subject:', subject);
+      console.log('Message:', textarea.value);
+  
+      /*
+      fetch('YOUR_ENDPOINT', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          organization,
+          subject,
+          message: textarea.value,
+        }),
+      })
+      .then(response => response.json())
+      .then(data => console.log('Success:', data))
+      .catch((error) => console.error('Error:', error));
+      */
+    });
+  
+    // Automatically submit the form when Enter key is pressed in the textarea
+    textarea.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+  
+        // Create and dispatch a submit event to trigger the form's submit event listener
+        const submitEvent = new Event('submit', { bubbles: true });
+        form.dispatchEvent(submitEvent);
+      }
+    });
+  });
+  
