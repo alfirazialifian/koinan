@@ -47,3 +47,29 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.observer').forEach(section => {
   observer.observe(section);
 });
+
+// Drawer
+const hamburgerButton = document.getElementById('hamburger-button');
+const hamburgerButtonDrawer = document.getElementById('hamburger-button-drawer');
+
+const drawer = document.getElementById('drawer');
+const closeBtn = document.getElementById('close-btn');
+
+hamburgerButton.addEventListener('click', () => {
+  drawer.classList.toggle('open');
+  hamburgerButtonDrawer.classList.toggle('open');
+});
+
+hamburgerButtonDrawer.addEventListener('click', () => {
+  drawer.classList.remove('open');
+  hamburgerButtonDrawer.classList.remove('open');
+});
+
+// Select the drawer body and close drawer
+const drawerBody = document.querySelector('.drawer-body');
+drawerBody.addEventListener('click', (event) => {
+  if (event.target.tagName === 'A') {
+    drawer.classList.remove('open');
+    hamburgerButtonDrawer.classList.remove('open');
+  }
+});
