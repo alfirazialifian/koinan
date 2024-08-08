@@ -164,15 +164,14 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Subject:', subject);
     console.log('Message:', textarea.value);
 
-    /*
-    fetch('YOUR_ENDPOINT', {
+    fetch('http://localhost:8080/send-email', { // !todo change this API later with API prod
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         name,
-        organization,
+        instance: organization,
         subject,
         message: textarea.value,
       }),
@@ -180,7 +179,6 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(response => response.json())
     .then(data => console.log('Success:', data))
     .catch((error) => console.error('Error:', error));
-    */
   });
 
   // Automatically submit the form when Enter key is pressed in the textarea
