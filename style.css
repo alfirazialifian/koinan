@@ -1,27 +1,27 @@
 @font-face {
   font-family: 'Raleway';
-  src: url('./assets/font/Raleway-VariableFont_wght.ttf') format('truetype');
+  src: url('./assets/font/Raleway-VariableFont_wght.ttf') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Raleway Italic';
-  src: url('./assets/font/Raleway-Italic-VariableFont_wght.ttf') format('truetype');
+  src: url('./assets/font/Raleway-Italic-VariableFont_wght.ttf') format('woff2');
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'Inter';
-  src: url('./assets/font/Inter-VariableFont_opsz\,wght.ttf') format('truetype');
+  src: url('./assets/font/Inter-VariableFont_opsz\,wght.ttf') format('woff2');
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'Inter italic';
-  src: url('./assets/font/Inter-Italic-VariableFont_opsz\,wght.ttf') format('truetype');
+  src: url('./assets/font/Inter-Italic-VariableFont_opsz\,wght.ttf') format('woff2');
   font-weight: normal;
   font-style: italic;
 }
@@ -94,8 +94,9 @@ a {
 nav {
   position: sticky;
   top: 0;
-  z-index: 5;
+  z-index: 20;
   display: flex;
+  display: -webkit-flex; /* Safari */
   justify-content: space-between;
   align-items: center;
   background-color: var(--color-primary);
@@ -104,6 +105,7 @@ nav {
 
   div {
     display: flex;
+    display: -webkit-flex; /* Safari */
     gap: 40px;
   }
 
@@ -131,6 +133,7 @@ nav {
 
 footer {
   display: flex;
+  display: -webkit-flex; /* Safari */
   justify-content: space-between;
   align-items: center;
   background-color: var(--color-primary);
@@ -146,6 +149,7 @@ footer {
 
   div {
     display: flex;
+    display: -webkit-flex; /* Safari */
     gap: 20px;
   }
 
@@ -177,7 +181,7 @@ footer {
 
 .sticky-dot {
   position: absolute;
-  bottom: 40%;
+  bottom: 60%;
   right: -25px;
   z-index: 3;
 }
@@ -185,6 +189,7 @@ footer {
 .wrapper-fixed {
   position: fixed;
   display: flex;
+  display: -webkit-flex; /* Safari */
   flex-direction: column;
   gap: 20px;
 }
@@ -217,6 +222,7 @@ footer {
 
   .wrapper-hero-smile-section-1 {
     display: flex;
+    display: -webkit-flex; /* Safari */
     justify-content: flex-end;
     background-image: url('./assets/Frame-Hero-Smile.svg');
     background-repeat: no-repeat;
@@ -236,6 +242,7 @@ footer {
   .wrapper-text-section-1 {
     position: relative;
     display: flex;
+    display: -webkit-flex; /* Safari */
     flex-direction: column;
     justify-content: flex-end;
     gap: 24px;
@@ -262,6 +269,7 @@ footer {
     position: absolute;
     right: -50px;
     display: flex;
+    display: -webkit-flex; /* Safari */
     flex-direction: column;
     justify-content: flex-end;
     padding: 100px 0;
@@ -293,11 +301,13 @@ footer {
 
   .wrapper-text-top-section-2 {
     display: flex;
+    display: -webkit-flex; /* Safari */
     flex-direction: column;
     justify-content: center;
     width: 90%;
     & > div {
       display: flex;
+      display: -webkit-flex; /* Safari */
       flex-direction: column;
 
       h5 {
@@ -317,6 +327,7 @@ footer {
     };
 
     display: flex;
+    display: -webkit-flex; /* Safari */
     flex-direction: column;
     gap: 1rem;
   }
@@ -331,12 +342,14 @@ footer {
   }
   .wrapper-heroes-bottom-section-2{
     display: flex;
+    display: -webkit-flex; /* Safari */
     flex-direction: column;
     gap: 1rem;
     background-image: url('./assets/bg-section-2-bottom-heroes.svg');
 
     .hero-section-2-smile {
       display: flex;
+      display: -webkit-flex; /* Safari */
       flex-direction: column;
       justify-content: flex-end;
       gap: 1rem;
@@ -368,6 +381,7 @@ footer {
     }
     .hero-section-2-computer {
       display: flex;
+      display: -webkit-flex; /* Safari */
       flex-direction: column;
       justify-content: flex-end;
       gap: 1rem;
@@ -400,11 +414,13 @@ footer {
   }
   .wrapper-text-bottom-section-2{
     display: flex;
+    display: -webkit-flex; /* Safari */
     flex-direction: column;
     gap: 32px;
     justify-content: center;
     & > div {
       display: flex;
+      display: -webkit-flex; /* Safari */
       flex-direction: column;
       gap: 8px;
 
@@ -438,6 +454,7 @@ footer {
 
   .wrapper-text-top-section-3 {
     display: flex;
+    display: -webkit-flex; /* Safari */
     flex-direction: column;
     justify-content: center;
     padding: 0 40px; /* Uncomment if needed */
@@ -469,6 +486,7 @@ footer {
 
     & > div {
       display: flex;
+      display: -webkit-flex; /* Safari */
       flex-direction: row;
       align-items: center;
       padding: 0 var(--padding-section);
@@ -512,12 +530,14 @@ footer {
 
   .wrapper-heroes-bottom-section-3 {
     display: flex;
+    display: -webkit-flex; /* Safari */
     flex-direction: column;
     gap: 1rem;
     background-image: url('./assets/bg-section-3-bottom.svg');
 
     .hero-section-3-location {
       display: flex;
+      display: -webkit-flex; /* Safari */
       flex-direction: column;
       justify-content: flex-end;
       gap: 1rem;
@@ -551,12 +571,14 @@ footer {
 
   .wrapper-text-bottom-section-3 {
     display: flex;
+    display: -webkit-flex; /* Safari */
     flex-direction: column;
     gap: 32px;
     justify-content: center;
 
     & > div:first-child {
       display: flex;
+      display: -webkit-flex; /* Safari */
       flex-direction: column;
       gap: 8px;
 
@@ -586,6 +608,7 @@ footer {
 
     & > div:last-child {
       display: flex;
+      display: -webkit-flex; /* Safari */
       gap: 24px;
       border-radius: 14px;
 
@@ -631,14 +654,17 @@ footer {
 
   .wrapper-text-top-section-4 {
     display: flex;
+    display: -webkit-flex; /* Safari */
     flex-direction: column;
     justify-content: center;
     display: flex;
+    display: -webkit-flex; /* Safari */
     flex-direction: column;
     gap: 32px;
 
     & > div {
       display: flex;
+      display: -webkit-flex; /* Safari */
       flex-direction: column;
 
       h5 {
@@ -668,6 +694,7 @@ footer {
 
   .wrapper-form-section-4 {
     display: flex;
+    display: -webkit-flex; /* Safari */
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
@@ -772,6 +799,7 @@ footer {
 @media (min-width: 2400px) {
   .container-content {
     display: flex;
+    display: -webkit-flex; /* Safari */
     flex-direction: column;
     align-items: center; /* Center content horizontally */
     justify-content: center; /* Center content vertically */
@@ -810,8 +838,8 @@ footer {
   }
 
   .section-1, .section-2, .section-3, .section-4 {
-    grid-template-columns: minmax(200px, 1fr); /* Single column layout on mobile */
-    grid-template-rows: auto auto auto; /* Adjust rows to fit content */
+    grid-template-columns: minmax(200px, 1fr);
+    grid-template-rows: auto auto auto;
   }
 
   .wrapper-hero-smile-section-1 {
@@ -841,6 +869,7 @@ footer {
 
   .wrapper-heroes-top-section-2 {
     display: flex;
+    display: -webkit-flex; /* Safari */
     justify-content: center;
     img {
       min-width: 400px;
@@ -937,6 +966,7 @@ footer {
   background-color: #333;
   color: white;
   display: flex;
+  display: -webkit-flex; /* Safari */
   flex-direction: column;
   transition: right 0.3s ease-in-out;
   z-index: 999;
@@ -949,6 +979,7 @@ footer {
 
 .drawer-header {
   display: flex;
+  display: -webkit-flex; /* Safari */
   flex-direction: row;
   justify-content: space-between;
   position: relative;
@@ -965,6 +996,7 @@ footer {
 
 .drawer-body {
   display: flex;
+  display: -webkit-flex; /* Safari */
   flex-direction: column;
   padding: 56px 32px;
   gap: 64px;
