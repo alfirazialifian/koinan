@@ -13,6 +13,37 @@ document.querySelectorAll('.sticky-dot button').forEach(anchor => {
 });
 /* Sticky button */
 
+/* auto scroll to form email */
+const scrollButton = document.getElementById("scroll-to-form");
+const targetElement = document.getElementById("form-submit-email");
+scrollButton.addEventListener("click", function(event) {
+  event.preventDefault(); // Prevents the default link behavior
+  targetElement.scrollIntoView({ behavior: "smooth" }); // Smooth scroll to the target element
+});
+/* auto scroll to form email */
+
+/* auto copy to clipboard onclick*/
+function handleClick(event, originalText) {
+  const element = event.target;  
+  element.classList.add('copied');
+  
+  // Remove the class and revert the text after the animation ends
+  setTimeout(() => {
+    element.classList.remove('copied');
+  }, 400); // Match the duration of the animation
+}
+
+document.getElementById('email-koinan').addEventListener('click', function() {
+  handleClick(event, 'support@koinan.com');
+  navigator.clipboard.writeText(this.textContent)
+});
+
+document.getElementById('phone-number-koinan').addEventListener('click', function() {
+  handleClick(event, '+628123456789');
+  navigator.clipboard.writeText(this.textContent)
+});
+/* auto copy to clipboard onclick*/
+
 /* observer for tracking which container in viewport */
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {    
