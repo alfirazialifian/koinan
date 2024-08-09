@@ -982,7 +982,7 @@ footer {
       flex-direction: column !important;
       gap: 12px !important;
 
-      & button {
+      & a {
         text-align: center !important;
       }
     }
