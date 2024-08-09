@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Koinan offers efficient and practical coin-to-digital currency solutions in Indonesia. Easily convert your coins with our innovative machines.">
   <link rel="icon" href="./assets/Logo.svg" type="image/x-icon"> 
   <link rel="stylesheet" href="./style.css">
   <title>Koinan</title>
 </head>
 <body>
   <nav>
-    <img src="./assets/Logo.svg"/ alt="Koinan Logo">
+    <img loading="eager" src="./assets/Logo.svg"/ alt="Koinan Logo">
     <div>
       <a href="#section-1" class="menus-text">Tentang Kami</a>
       <a href="#section-2" class="menus-text">Cara Tukar Koin</a>
@@ -28,7 +29,7 @@
   <!-- drawer mobile -->
   <div class="drawer" id="drawer">
     <div class="drawer-header">
-      <img src="./assets/Logo.svg"/ alt="Koinan Logo">
+      <img loading="eager" src="./assets/Logo.svg"/ alt="Koinan Logo">
       <div class="hamburger-button-drawer" id="hamburger-button-drawer">
         <div class="bar"></div>
         <div class="bar"></div>
@@ -45,9 +46,9 @@
     <footer id="footer">
       <p>@2024 KOINAN</p>
       <div>
-        <a href="#" class="menus-text"><img src="./assets/footer/IG.svg" alt=""></a>
-        <a href="#" class="menus-text"><img src="./assets/footer/LI.svg" alt=""></a>
-        <a href="#" class="menus-text"><img src="./assets/footer/YT.svg" alt=""></a>
+        <a href="#" class="menus-text"><img loading="lazy" src="./assets/footer/IG.svg" alt="image-instagram"></a>
+        <a href="#" class="menus-text"><img loading="lazy" src="./assets/footer/LI.svg" alt="image-linkedin"></a>
+        <a href="#" class="menus-text"><img loading="lazy" src="./assets/footer/YT.svg" alt="image-youtube"></a>
       </div>
     </footer>
   </div>
@@ -57,7 +58,7 @@
     <section id="section-1" class="section-1 padding-left-section border-bottom-section observer">
       <div class="wrapper-hero-smile-section-1 border-content-section-left padding-section">
         <div></div>
-        <!-- <img src="./assets/Hero-smile.svg" alt="Hero Smile"> -->
+        <!-- <img loading="lazy" src="./assets/Hero-smile.svg" alt="Hero Smile"> -->
       </div>
       <div class="wrapper-text-section-1 border-content-section padding-section">
         <h2>Solusi Untuk <br> Masalah Receh</h2>
@@ -67,7 +68,7 @@
         </p>
         <button class="wrapper-scroll">
           <p>SCROLL</p>
-          <img src="./assets/chevron-bottom.svg" alt="chevron-down">
+          <img loading="lazy" src="./assets/chevron-bottom.svg" alt="chevron-down">
         </button>
         <div class="sticky-dot">
           <div class="wrapper-fixed">
@@ -93,7 +94,7 @@
         <p>Kami bertekad untuk mengatasi masalah umum terkait koin receh dengan menyediakan solusi yang efisien dan praktis. Dengan Koinan, kami ingin memudahkan setiap orang untuk mengakses uang digital dengan aman dan mudah.</p>
       </div>
       <div class="wrapper-heroes-top-section-2 border-content-section border-bottom-section padding-section">
-        <img src="./assets/heroes-2.svg" alt="heroes-watching" style="width: 100%;">
+        <img loading="lazy" src="./assets/heroes-2.svg" alt="heroes-watching" style="width: 100%;">
       </div>
       <span></span>
 
@@ -144,7 +145,7 @@
         </div>
       </div>
       <div class="wrapper-machine-image" >
-        <img src="assets/img-mechine.svg"/>
+        <img loading="lazy" src="assets/machine-new.png"/ alt="image-koinan" loading="lazy">
       </div>
 
       <!-- section bottom -->
@@ -169,8 +170,8 @@
         </div>
         <p>Koinan hadir di berbagai lokasi strategis di seluruh kota. Temukan mesin penukaran koin terdekat dari lokasi Anda dan nikmati kemudahan bertransaksi dengan Koinan.</p>
         <div>
-          <button class="btn-contact">Hubungi Kami</button>
-          <button class="btn-follow">Ikuti Kami</button>
+          <a href="https://www.instagram.com/koinan.id/" class="btn-contact" target="_blank">Hubungi Kami</a>
+          <a id="scroll-to-form" href="" class="btn-follow">Ikuti Kami</a>
         </div>
       </div>
       <span></span>
@@ -183,10 +184,16 @@
           <h5>HUBUNGI KAMI</h5>
           <h3>Untuk membuka peluang kerja sama dengan kami.</h3>
         </div>
-        <p>Jika Anda memiliki pertanyaan atau membutuhkan bantuan, jangan ragu untuk menghubungi tim kami melalui email di support@koinan.com atau melalui telepon di +628123456789. Kami juga tersedia untuk berdiskusi tentang peluang kerjasama bisnis.</p>
+        <p>
+          Jika Anda memiliki pertanyaan atau membutuhkan bantuan, 
+          jangan ragu untuk menghubungi tim kami melalui email di 
+          <b id="email-koinan">support@koinan.com</b> 
+          atau melalui telepon di <b id="phone-number-koinan">+628123456789</b>. 
+          Kami juga tersedia untuk berdiskusi tentang peluang kerjasama bisnis.
+        </p>
       </div>
 
-      <form class="wrapper-form-section-4 border-content-section padding-section">
+      <form id="form-submit-email" class="wrapper-form-section-4 border-content-section padding-section">
         <div class="custom-input">
           <span>Nama</span>
           <input id="input-nama" type="text" placeholder="masukan nama Anda ...">
@@ -215,9 +222,9 @@
   <footer id="footer-container">
     <p>@2024 KOINAN</p>
     <div>
-      <a href="https://www.instagram.com/koinan.id/" class="menus-text" target="_blank" rel="noopener noreferrer"><img src="./assets/footer/IG.svg" alt=""></a>
-      <a href="https://www.linkedin.com/company/koinan/" class="menus-text" target="_blank" rel="noopener noreferrer"><img src="./assets/footer/LI.svg" alt=""></a>
-      <a href="https://www.youtube.com/" class="menus-text"><img src="./assets/footer/YT.svg" alt=""></a>
+      <a href="https://www.instagram.com/koinan.id/" class="menus-text" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./assets/footer/IG.svg" alt="image-instagram"></a>
+      <a href="https://www.linkedin.com/company/koinan/" class="menus-text" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./assets/footer/LI.svg" alt="image-linkedin"></a>
+      <a href="https://www.youtube.com/" class="menus-text"><img loading="lazy" src="./assets/footer/YT.svg" alt="image-youtube"></a>
     </div>
   </footer>
 
