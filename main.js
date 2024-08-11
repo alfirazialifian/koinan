@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Subject:', subject);
     console.log('Message:', textarea.value);
 
-    fetch('http://localhost:8080/send-email', { // !todo change this API later with API prod
+    fetch('https://koinan-api-production-1a21.up.railway.app/send-email', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
