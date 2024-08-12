@@ -267,11 +267,14 @@ document.addEventListener('DOMContentLoaded', () => {
     alertMessage.textContent = message;
     alertModal.classList.remove('hidden');
 
+    console.log('ini type', type);
+    
     if (type === 'success') {
       imageSuccess.classList.add('show-image-alert')
       imageError.classList.add('hide-image-alert')
       closeAlertButton.style.backgroundColor = 'rgba(9, 83, 48, 0.8)';
-      closeAlertButton.textContent = 'OK'
+      closeAlertButton.textContent = 'OK';
+      alertTitle.style.color = 'rgba(9, 83, 48, 0.8)';
     } else {
       imageError.classList.add('show-image-alert')
       imageSuccess.classList.add('hide-image-alert')
@@ -306,7 +309,6 @@ document.addEventListener('DOMContentLoaded', () => {
         message: textarea.value,
       }),
     })
-      .then(response => response.json())
       .then(() => {
         submitSuccessfully();
         showAlert('Submit Success', 'Pesan anda telah terkirim dengan sukses', 'success')
