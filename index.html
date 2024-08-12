@@ -151,8 +151,8 @@
       <!-- section bottom -->
       <div id="temukan-kami" class="wrapper-heroes-bottom-section-3 border-content-section-left padding-section border-bottom-section observer">
         <div class="hero-section-3-location" id="hero-section-3-location">
-          <h5>Patung Pancoran Jakarta</h5>
-          <p>Nunc quam neque tortor turpis ac eget dui elementum diam. Egestas etiam sed scelerisque eu sapien turpis viverra pretium. Odio ipsum leo eget sed.</p>
+          <h5 id="title-pagination">Patung Pancoran Jakarta</h5>
+          <p id="text-pagination">Nunc quam neque tortor turpis ac eget dui elementum diam. Egestas etiam sed scelerisque eu sapien turpis viverra pretium. Odio ipsum leo eget sed.</p>
           <div class="image-dot" id="image-dot">
             <button class="active-image-btn" data-target="url('./assets/img-location.svg')"></button>
             <button data-target="url('./assets/hero-section-2-bottom-computer.svg')"></button>
@@ -199,6 +199,10 @@
           <input id="input-nama" type="text" placeholder="masukan nama Anda ...">
         </div>
         <div class="custom-input">
+          <span>Email</span>
+          <input id="input-email" type="email" placeholder="masukan email Anda ...">
+        </div>
+        <div class="custom-input">
           <span>Instansi</span>
           <input id="input-instansi" type="text" placeholder="tulis nama instansi Anda ...">
         </div>
@@ -206,15 +210,16 @@
           <span>Subject</span>
           <select name="" id="select-subject" class="placeholder-select">
             <option class="placeholder-select" disabled selected hidden>Pilih subject pesan</option>
-            <option value="Kerja Sama">Kerja Sama</option>
-            <option value="Bisnis">Bisnis</option>
+            <option value="Tukar Koin Perseorangan">Tukar koin perseorangan</option>
+            <option value="Tukar koin bisnismu">Tukar koin bisnismu</option>
+            <option value="Kerjasama">Kerjasama</option>
           </select>
         </div>
         <div class="custom-input">
           <span>Pesan</span>
           <textarea name="" id="textarea-pesan" placeholder="tulis pesan singkat Anda ..."></textarea>
         </div>
-        <button type="submit" class="btn-submit">Kirim</button>
+        <button type="submit" id="btn-submit" class="btn-submit">Kirim</button>
       </form>
       
     </section>
@@ -229,6 +234,18 @@
     </div>
   </footer>
 
+    <!-- Alert Modal -->
+  <div id="custom-alert" class="custom-alert hidden">
+    <div class="custom-alert-content">
+      <img id="success-image" src="./assets/error.svg" alt="error" width="100px" height="100px"/>
+      <img id="error-image" src="./assets/success-svgrepo-com.svg" alt="success" width="100px" height="100px">
+      <div>
+        <h3 id="alert-title"></h3>
+        <p id="alert-message"></p>
+        <button id="close-alert">Close</button>
+      </div>
+    </div>
+  </div>
   <script src="./main.js"></script>
 </body>
 </html>

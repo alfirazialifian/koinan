@@ -23,7 +23,7 @@ scrollButton.addEventListener("click", function(event) {
 /* auto scroll to form email */
 
 /* auto copy to clipboard onclick*/
-function handleClick(event, originalText) {
+function handleClick(event) {
   const element = event.target;  
   element.classList.add('copied');
   
@@ -74,17 +74,56 @@ const bgImages = [
   'url(./assets/hero-section-2-bottom-computer.svg)',
 ];
 
+const paginationContent = [
+  {
+    title: 'Patung Pancoran Jakarta',
+    text: 'Nunc quam neque tortor turpis ac eget dui elementum diam. Egestas etiam sed scelerisque eu sapien turpis viverra pretium. Odio ipsum leo eget sed. 1',
+  },
+  {
+    title: 'Patung Pancoran JakartaTitle 2',
+    text: 'Nunc quam neque tortor turpis ac eget dui elementum diam. Egestas etiam sed scelerisque eu sapien turpis viverra pretium. Odio ipsum leo eget sed. 2',
+  },
+  {
+    title: 'Patung Pancoran Jakarta Title 3',
+    text: 'Nunc quam neque tortor turpis ac eget dui elementum diam. Egestas etiam sed scelerisque eu sapien turpis viverra pretium. Odio ipsum leo eget sed. 3',
+  },
+  {
+    title: 'Patung Pancoran Jakarta Title 4',
+    text: 'Nunc quam neque tortor turpis ac eget dui elementum diam. Egestas etiam sed scelerisque eu sapien turpis viverra pretium. Odio ipsum leo eget sed. 4',
+  },
+  {
+    title: 'Patung Pancoran Jakarta Title 5',
+    text: 'Nunc quam neque tortor turpis ac eget dui elementum diam. Egestas etiam sed scelerisque eu sapien turpis viverra pretium. Odio ipsum leo eget sed. 5',
+  },
+  {
+    title: 'Patung Pancoran Jakarta Title 6',
+    text: 'Nunc quam neque tortor turpis ac eget dui elementum diam. Egestas etiam sed scelerisque eu sapien turpis viverra pretium. Odio ipsum leo eget sed. 6',
+  }
+];
+
 let currentIndex = 0;
 const buttons = Array.from(document.querySelectorAll('#image-dot button'));
 const containerButtonPagination = document.getElementById('hero-section-3-location');
+const titlePaginationContent = document.getElementById('title-pagination');
+const textPaginationContent = document.getElementById('text-pagination');
 
+let autoSlideInterval;
+
+// Function to transition to a specific image
 function transitionImage(index) {
+  // Ensure index wraps around within the allowed range
+  if (index > 5) index = 0;
+
   containerButtonPagination.classList.add('fade-out');
   containerButtonPagination.style.backgroundImage = bgImages[index];
   containerButtonPagination.classList.add('sliding');
 
+  titlePaginationContent.textContent = paginationContent[index].title;
+  textPaginationContent.textContent = paginationContent[index].text;
+
   buttons[currentIndex].classList.remove('active-image-btn');
-  currentIndex = index;
+  currentIndex = index;  
+  
   buttons[currentIndex].classList.add('active-image-btn');
 
   containerButtonPagination.addEventListener('animationend', () => {
@@ -93,10 +132,20 @@ function transitionImage(index) {
   }, { once: true });
 }
 
+// Function to reset the auto-slide interval
+function resetAutoSlide() {
+  clearInterval(autoSlideInterval);
+  autoSlideInterval = setInterval(() => {
+    const nextIndex = (currentIndex + 1) % bgImages.length;
+    transitionImage(nextIndex);
+  }, 3000);
+}
+
 // Handle button clicks
 buttons.forEach((dot, index) => {
   dot.addEventListener('click', () => {
     transitionImage(index);
+    resetAutoSlide(); // Reset interval on button click
   });
 });
 
@@ -118,15 +167,22 @@ containerButtonPagination.addEventListener('touchmove', (e) => {
   if (Math.abs(deltaX) > 50) { // Adjust sensitivity as needed
     isDragging = false;
     const direction = deltaX > 0 ? 1 : -1;
-    const newIndex = (currentIndex + direction + buttons.length) % buttons.length;
+    let newIndex = (currentIndex + direction + bgImages.length) % bgImages.length;
+    
+    // Ensure newIndex is within the range of 0 to 5
     transitionImage(newIndex);
+    resetAutoSlide(); // Reset interval on drag
   }
 });
 
 containerButtonPagination.addEventListener('touchend', () => {
   isDragging = false;
 });
+
+// Start the automatic sliding
+resetAutoSlide();
 /* pagination background */
+
 
 /* button scroll bottom */
 const scrollBtn = document.querySelector('.wrapper-scroll');
@@ -179,9 +235,54 @@ drawerBody.addEventListener('click', (event) => {
 
 
 /* Submit Form */
+
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('.wrapper-form-section-4');
   const textarea = form.querySelector('#textarea-pesan');
+  const alertModal = document.getElementById('custom-alert');
+  const alertMessage = document.getElementById('alert-message');
+  const alertTitle = document.getElementById('alert-title');
+  const closeAlertButton = document.getElementById('close-alert');
+  const btnSubmit = document.getElementById('btn-submit');
+  const imageError = document.getElementById('success-image');
+  const imageSuccess = document.getElementById('error-image');
+
+  function submitSuccessfully() {
+    btnSubmit.textContent = 'Terkirim';
+    btnSubmit.style.color = 'white';
+    btnSubmit.style.backgroundColor = 'gray'
+    btnSubmit.style.cursor = 'not-allowed'
+    btnSubmit.disabled = true;
+
+    setTimeout(() => {
+      btnSubmit.style.cursor = 'pointer'
+      btnSubmit.disabled = false;
+      btnSubmit.textContent = 'Kirim';
+      btnSubmit.style.backgroundColor = 'rgba(16, 45, 50, 1)'
+    }, 5000)
+  }
+
+  function showAlert(title, message, type) {
+    alertTitle.textContent = title;
+    alertMessage.textContent = message;
+    alertModal.classList.remove('hidden');
+
+    if (type === 'success') {
+      imageSuccess.classList.add('show-image-alert')
+      imageError.classList.add('hide-image-alert')
+      closeAlertButton.style.backgroundColor = 'rgba(9, 83, 48, 0.8)';
+      closeAlertButton.textContent = 'OK'
+    } else {
+      imageError.classList.add('show-image-alert')
+      imageSuccess.classList.add('hide-image-alert')
+    }
+  }
+
+  // Function to hide custom alert
+  function hideAlert() {
+      alertModal.classList.add('hidden');
+  }
+  closeAlertButton.addEventListener('click', hideAlert);
 
   form.addEventListener('submit', (event) => {
     event.preventDefault(); // Prevent the default form submission behavior
@@ -190,10 +291,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const name = form.querySelector('#input-nama').value;
     const organization = form.querySelector('#input-instansi').value;
     const subject = form.querySelector('#select-subject').value;  
-    console.log('Name:', name);
-    console.log('Organization:', organization);
-    console.log('Subject:', subject);
-    console.log('Message:', textarea.value);
+    const email = form.querySelector('#input-email').value;
 
     fetch('https://koinan-api-production-1a21.up.railway.app/send-email', {
       method: 'POST',
@@ -202,14 +300,18 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       body: JSON.stringify({
         name,
+        email,
         instance: organization,
         subject,
         message: textarea.value,
       }),
     })
-    .then(response => response.json())
-    .then(data => console.log('Success:', data))
-    .catch((error) => console.error('Error:', error));
+      .then(response => response.json())
+      .then(() => {
+        submitSuccessfully();
+        showAlert('Submit Success', 'Pesan anda telah terkirim dengan sukses', 'success')
+      })
+      .catch(() => { showAlert('Submit gagal', 'Submit gagal, coba lagi beberapa saat ..', 'error')});
   });
 
   // Automatically submit the form when Enter key is pressed in the textarea
@@ -224,3 +326,4 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 /* Submit Form */
+
