@@ -1,17 +1,60 @@
 /* Sticky button */
-document.querySelectorAll('.sticky-dot button').forEach(anchor => {
+document.querySelectorAll('.sticky-dot button').forEach((anchor, index) => {
   anchor.addEventListener('click', (e) => {
     e.preventDefault();
-    const targetId = e.target.getAttribute('data-target');
-    const targetElement = document.querySelector(targetId);
+    const offsetsValue = [60, 90, 55, 110, 120, 90]
+    const atrValue = e.target.getAttribute('data-target');    
+    const targetElement = document.getElementById(atrValue);
     if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
+      const headerOffset = offsetsValue[index];
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
     } else {
-      console.error(`Element with ID ${targetId} not found.`);
+      console.error(`Element with ID ${targetElement} not found.`);
     }
   });
 });
 /* Sticky button */
+document.querySelectorAll('#container-navigation-desktop button').forEach((anchor, index) => {
+  anchor.addEventListener('click', (e) => {
+    e.preventDefault();
+    const offsetsValue = [60, 110, 115, 110, 0]
+
+    const atrValue = e.target.getAttribute('data-target');    
+    const targetElement = document.getElementById(atrValue);
+    if (targetElement) {
+      const headerOffset = offsetsValue[index];
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    } else {
+      console.error(`Element with ID ${targetElement} not found.`);
+    }
+  });
+});
+
+const koinanIcon = document.getElementById('koinan-icon');
+
+koinanIcon.addEventListener('click', () => {
+  const koinanHome = document.getElementById('section-1');
+  const elementRect = koinanHome.getBoundingClientRect();
+  const elementHeight = koinanHome.offsetHeight;
+  const offsetPosition = window.pageYOffset + elementRect.top + elementHeight - window.innerHeight;
+  window.scrollTo({
+    top: offsetPosition,
+    behavior: 'smooth'
+  });
+});
+
 
 /* auto scroll to form email */
 const scrollButton = document.getElementById("scroll-to-form");
@@ -49,7 +92,7 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {    
     if (entry.isIntersecting) {
       document.querySelectorAll('.sticky-dot button').forEach(dot => {   
-        const getAttrDataTarget = dot.getAttribute('data-target').split('#')[1];
+        const getAttrDataTarget = dot.getAttribute('data-target');
         const getEntryId = entry.target.id;
         if (getAttrDataTarget === getEntryId) {          
           dot.classList.add('active-dot')
@@ -75,30 +118,12 @@ const bgImages = [
 ];
 
 const paginationContent = [
-  {
-    title: 'Patung Pancoran Jakarta',
-    text: 'Nunc quam neque tortor turpis ac eget dui elementum diam. Egestas etiam sed scelerisque eu sapien turpis viverra pretium. Odio ipsum leo eget sed. 1',
-  },
-  {
-    title: 'Patung Pancoran JakartaTitle 2',
-    text: 'Nunc quam neque tortor turpis ac eget dui elementum diam. Egestas etiam sed scelerisque eu sapien turpis viverra pretium. Odio ipsum leo eget sed. 2',
-  },
-  {
-    title: 'Patung Pancoran Jakarta Title 3',
-    text: 'Nunc quam neque tortor turpis ac eget dui elementum diam. Egestas etiam sed scelerisque eu sapien turpis viverra pretium. Odio ipsum leo eget sed. 3',
-  },
-  {
-    title: 'Patung Pancoran Jakarta Title 4',
-    text: 'Nunc quam neque tortor turpis ac eget dui elementum diam. Egestas etiam sed scelerisque eu sapien turpis viverra pretium. Odio ipsum leo eget sed. 4',
-  },
-  {
-    title: 'Patung Pancoran Jakarta Title 5',
-    text: 'Nunc quam neque tortor turpis ac eget dui elementum diam. Egestas etiam sed scelerisque eu sapien turpis viverra pretium. Odio ipsum leo eget sed. 5',
-  },
-  {
-    title: 'Patung Pancoran Jakarta Title 6',
-    text: 'Nunc quam neque tortor turpis ac eget dui elementum diam. Egestas etiam sed scelerisque eu sapien turpis viverra pretium. Odio ipsum leo eget sed. 6',
-  }
+  { title: 'Patung Pancoran Jakarta', text: 'Nunc quam neque tortor turpis ac eget dui elementum diam. Egestas etiam sed scelerisque eu sapien turpis viverra pretium. Odio ipsum leo eget sed. 1' },
+  { title: 'Patung Pancoran JakartaTitle 2', text: 'Nunc quam neque tortor turpis ac eget dui elementum diam. Egestas etiam sed scelerisque eu sapien turpis viverra pretium. Odio ipsum leo eget sed. 2' },
+  { title: 'Patung Pancoran Jakarta Title 3', text: 'Nunc quam neque tortor turpis ac eget dui elementum diam. Egestas etiam sed scelerisque eu sapien turpis viverra pretium. Odio ipsum leo eget sed. 3' },
+  { title: 'Patung Pancoran Jakarta Title 4', text: 'Nunc quam neque tortor turpis ac eget dui elementum diam. Egestas etiam sed scelerisque eu sapien turpis viverra pretium. Odio ipsum leo eget sed. 4' },
+  { title: 'Patung Pancoran Jakarta Title 5', text: 'Nunc quam neque tortor turpis ac eget dui elementum diam. Egestas etiam sed scelerisque eu sapien turpis viverra pretium. Odio ipsum leo eget sed. 5' },
+  { title: 'Patung Pancoran Jakarta Title 6', text: 'Nunc quam neque tortor turpis ac eget dui elementum diam. Egestas etiam sed scelerisque eu sapien turpis viverra pretium. Odio ipsum leo eget sed. 6' },
 ];
 
 let currentIndex = 0;
@@ -111,33 +136,29 @@ let autoSlideInterval;
 
 // Function to transition to a specific image
 function transitionImage(index) {
-  // Ensure index wraps around within the allowed range
-  if (index > 5) index = 0;
+  if (index >= bgImages.length) index = 0; // Ensure index wraps around
+  if (index < 0) index = bgImages.length - 1; // Handle negative index
 
   containerButtonPagination.classList.add('fade-out');
   containerButtonPagination.style.backgroundImage = bgImages[index];
-  containerButtonPagination.classList.add('sliding');
-
   titlePaginationContent.textContent = paginationContent[index].title;
   textPaginationContent.textContent = paginationContent[index].text;
 
   buttons[currentIndex].classList.remove('active-image-btn');
-  currentIndex = index;  
-  
+  currentIndex = index;
   buttons[currentIndex].classList.add('active-image-btn');
 
-  containerButtonPagination.addEventListener('animationend', () => {
-    containerButtonPagination.classList.remove('sliding');
+  // Use requestAnimationFrame to ensure smooth transitions
+  requestAnimationFrame(() => {
     containerButtonPagination.classList.remove('fade-out');
-  }, { once: true });
+  });
 }
 
 // Function to reset the auto-slide interval
 function resetAutoSlide() {
   clearInterval(autoSlideInterval);
   autoSlideInterval = setInterval(() => {
-    const nextIndex = (currentIndex + 1) % bgImages.length;
-    transitionImage(nextIndex);
+    transitionImage((currentIndex + 1) % bgImages.length);
   }, 3000);
 }
 
@@ -153,34 +174,33 @@ buttons.forEach((dot, index) => {
 let startX = 0;
 let isDragging = false;
 
-containerButtonPagination.addEventListener('touchstart', (e) => {
-  startX = e.touches[0].clientX;
-  isDragging = true;
-});
-
-containerButtonPagination.addEventListener('touchmove', (e) => {
+function handleSwipe(e) {
   if (!isDragging) return;
   
   const moveX = e.touches[0].clientX;
   const deltaX = startX - moveX;
 
-  if (Math.abs(deltaX) > 50) { // Adjust sensitivity as needed
+  if (Math.abs(deltaX) > 50) {
     isDragging = false;
     const direction = deltaX > 0 ? 1 : -1;
-    let newIndex = (currentIndex + direction + bgImages.length) % bgImages.length;
-    
-    // Ensure newIndex is within the range of 0 to 5
-    transitionImage(newIndex);
-    resetAutoSlide(); // Reset interval on drag
+    transitionImage((currentIndex + direction + bgImages.length) % bgImages.length);
+    resetAutoSlide();
   }
+}
+
+containerButtonPagination.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].clientX;
+  isDragging = true;
 });
+
+containerButtonPagination.addEventListener('touchmove', handleSwipe);
 
 containerButtonPagination.addEventListener('touchend', () => {
   isDragging = false;
 });
 
-// Start the automatic sliding
 resetAutoSlide();
+
 /* pagination background */
 
 
@@ -235,7 +255,6 @@ drawerBody.addEventListener('click', (event) => {
 
 
 /* Submit Form */
-
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('.wrapper-form-section-4');
   const textarea = form.querySelector('#textarea-pesan');
