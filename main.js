@@ -45,10 +45,10 @@ document.querySelectorAll('#container-navigation-desktop button').forEach((ancho
 const koinanIcon = document.getElementById('koinan-icon');
 
 koinanIcon.addEventListener('click', () => {
-  const koinanHome = document.getElementById('section-1');
-  const elementRect = koinanHome.getBoundingClientRect();
-  const elementHeight = koinanHome.offsetHeight;
-  const offsetPosition = window.pageYOffset + elementRect.top + elementHeight - window.innerHeight;
+  const targetElement = document.getElementById('section-1');
+  const headerOffset = 60;
+  const elementPosition = targetElement.getBoundingClientRect().top;
+  const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
   window.scrollTo({
     top: offsetPosition,
     behavior: 'smooth'
