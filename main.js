@@ -20,10 +20,12 @@ document.querySelectorAll('.sticky-dot button').forEach((anchor, index) => {
   });
 });
 /* Sticky button */
+
+
 document.querySelectorAll('#container-navigation-desktop button').forEach((anchor, index) => {
   anchor.addEventListener('click', (e) => {
     e.preventDefault();
-    const offsetsValue = [60, 110, 115, 110, 0]
+    const offsetsValue = [90, 110, 120, 90]
 
     const atrValue = e.target.getAttribute('data-target');    
     const targetElement = document.getElementById(atrValue);
